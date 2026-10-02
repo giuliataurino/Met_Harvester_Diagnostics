@@ -6,7 +6,12 @@ No dependency on `paa_graph_kb`.
 ## Setup
 
 ```bash
-pip install -r requirements.txt        # requests, pydantic, rdflib
+cd ~/met-diagnostics        # wherever requirements.txt is; confirm with ls
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt -r requirements-dev.txt   # requests, pydantic, rdflib
+python -m pytest test_server.py
+
 python server.py --cache data/met/objects
 ```
 
